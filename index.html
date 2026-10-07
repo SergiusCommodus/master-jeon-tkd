@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Master Jeon Tae Kwon Do</title>
+<meta name="description" content="A Plus Master Jeon Tae Kwon Do in Chester, NJ. Olympic style Taekwondo for kids, teens, adults and families with Grand Master Jung T. Jeon, 7th Dan. First class free.">
+<meta property="og:title" content="Master Jeon Tae Kwon Do · Chester, NJ">
+<meta property="og:description" content="Olympic style Taekwondo for kids, teens, adults and families. First class free.">
+<meta property="og:image" content="images/class-photo.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 4a46 46 0 0 1 0 92 23 23 0 0 1 0-46 23 23 0 0 0 0-46z' fill='%230f3f8c'/%3E%3Cpath d='M50 4a46 46 0 0 0 0 92 23 23 0 0 0 0-46 23 23 0 0 1 0-46z' fill='%23c8102e'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Noto+Serif+KR:wght@600;800&display=swap">
+<style>
+/* Layout: warm paper ground, white cards, red/navy accents. Calm reveals only. Content column max 1120px. Single light look by design. */
+:root{
+  --bg:#efeae2;          /* warm paper */
+  --bg-2:#e6e0d5;        /* deeper band */
+  --card:#ffffff;
+  --fg:#17120f;
+  --fg-dim:#5e5651;
+  --red:#c8102e;
+  --red-deep:#9c0b23;
+  --blue:#0f3f8c;
+  --gold:#b8862a;
+  --line:#d9d2c6;
+  --ink:#17120f;
+  --font-display:"Cormorant Garamond","Noto Serif KR",Georgia,serif;
+  --font-serif:"Noto Serif KR",Georgia,serif;
+  --font-body:"Manrope","Noto Sans KR",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16.5px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{text-wrap:balance;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:22px}
+.eyebrow{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:600;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;text-decoration:none;padding:14px 28px;font-weight:600;letter-spacing:.02em;font-size:.92rem;border:0;cursor:pointer;font-family:var(--font-body);border-radius:3px;transition:background .2s,transform .2s}
+.btn:hover{background:var(--red-deep);transform:translateY(-1px)}
+.btn:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.btn.dark{background:var(--ink)}.btn.dark:hover{background:#000}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn:disabled{opacity:.6;cursor:default;transform:none}
+
+/* ===== INTRO ===== */
+#intro{position:fixed;inset:0;z-index:100;background:var(--ink);display:grid;place-items:center;transition:opacity .8s ease,visibility .8s}
+#intro.out{opacity:0;visibility:hidden;pointer-events:none}
+#intro .logo{width:min(70vw,300px);display:block}
+#intro .logo .arc{stroke-dasharray:300;stroke-dashoffset:300;animation:draw 1.3s cubic-bezier(.6,0,.2,1) forwards}
+#intro .logo .arc.b{animation-delay:.25s}
+#intro .logo .core{opacity:0;animation:pop .6s 1.2s cubic-bezier(.2,.8,.2,1) forwards;transform-origin:center}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+#intro .t{margin-top:26px;text-align:center;color:#fff;opacity:0;animation:up .8s 1.7s cubic-bezier(.2,.8,.2,1) forwards}
+#intro .t .k{font-family:var(--font-serif);font-weight:800;font-size:clamp(2.4rem,8vw,4rem);letter-spacing:.25em;line-height:1;display:block;margin-left:.25em}
+#intro .t .e{font-family:var(--font-body);text-transform:uppercase;letter-spacing:.22em;font-size:.78rem;font-weight:600;display:block;margin-top:14px;color:#cfc7bb}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+#intro .bar{position:absolute;left:0;bottom:0;height:3px;background:var(--red);width:0;animation:bar 3.2s linear forwards}
+@keyframes bar{to{width:100%}}
+#skip{position:absolute;right:22px;bottom:22px;background:none;border:1px solid #3a322e;padding:10px 16px;font:700 .7rem/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;cursor:pointer;color:#bfb6aa;border-radius:4px}
+#skip:hover{color:#fff;border-color:#fff}
+
+/* ===== NAV ===== */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 12px rgba(23,18,15,.06)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand .mark{width:42px;height:42px;flex:none}
+.brand b{font-family:var(--font-display);font-size:1.2rem;font-weight:700;letter-spacing:.02em;line-height:1;display:block}
+.brand span{font-size:.64rem;letter-spacing:.24em;color:var(--fg-dim);text-transform:uppercase}
+.links{display:flex;gap:28px;font-size:.9rem;font-weight:600;letter-spacing:.01em}
+.links a{text-decoration:none;color:var(--ink);padding-bottom:4px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.links a:hover,.links a:focus-visible{color:var(--ink);border-color:var(--red);outline:none}
+.cartbtn{position:relative;background:none;border:1.5px solid var(--ink);border-radius:3px;padding:10px 14px;font:600 .85rem var(--font-body);cursor:pointer;color:var(--ink);display:inline-flex;gap:8px;align-items:center}
+.cartbtn i{font-style:normal;background:var(--red);color:#fff;border-radius:999px;min-width:20px;height:20px;display:grid;place-items:center;font-size:.68rem}
+.navright{display:flex;gap:10px;align-items:center}
+@media(max-width:880px){.links{display:none}.navright .btn{display:none}}
+
+/* ===== HERO ===== */
+.hero{position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;padding-block:64px 56px}
+.hero h1{font-family:var(--font-display);font-size:clamp(3rem,6.6vw,5.4rem);line-height:1.02;font-weight:600;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--ink);font-weight:500}
+.hero .sub{font-family:var(--font-body);font-weight:400;font-size:clamp(1.05rem,1.5vw,1.25rem);color:var(--fg-dim);max-width:32em;margin-top:22px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.stats>div{background:var(--card);border-radius:6px;padding:16px 14px;text-align:center;border-bottom:3px solid var(--red)}
+.stats b{display:block;font-family:var(--font-display);font-size:2.3rem;line-height:1;font-weight:600;font-variant-numeric:tabular-nums}
+.stats b i{font-style:normal;color:var(--red)}
+.stats small{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-dim);font-weight:600}
+.photo{position:relative;border-radius:8px;overflow:hidden;box-shadow:0 30px 60px rgba(23,18,15,.18);max-width:100%}
+.photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:60% 40%}
+.photo .cap{position:absolute;left:0;right:0;bottom:0;padding:18px 20px;background:linear-gradient(transparent,rgba(23,18,15,.85));color:#fff;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.photo .cap b{display:block;font-family:var(--font-display);font-size:1.3rem;font-weight:600;letter-spacing:0;text-transform:none;margin-top:2px}
+.photo .chip{position:absolute;top:16px;left:16px;background:var(--red);color:#fff;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:6px 10px;border-radius:3px}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;padding-block:40px}.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== SECTIONS ===== */
+section{padding-block:88px}
+.band{background:var(--bg-2)}
+.sec-head{display:grid;justify-items:center;text-align:center;gap:10px;margin-bottom:48px;max-width:720px;margin-inline:auto}
+.sec-head .k{font-family:var(--font-serif);font-size:.95rem;font-weight:600;color:var(--fg-dim);letter-spacing:.3em;order:-1}
+.sec-head .eyebrow::before{display:none}
+.sec-head h2{font-family:var(--font-display);font-size:clamp(2.2rem,4.2vw,3.2rem);font-weight:600;line-height:1.08}
+.sec-head h2::after{content:"";display:block;width:44px;height:2px;background:var(--red);margin:18px auto 0}
+.sec-head p{margin:4px 0 0;color:var(--fg-dim);max-width:58ch}
+.topbar{background:var(--ink);color:#d8d1c6;font-size:.8rem}
+.topbar .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:8px}
+.topbar b{color:#fff;font-weight:700}
+.topbar span{display:inline-flex;gap:18px;flex-wrap:wrap}
+@media(max-width:700px){.topbar .wrap>span:last-child{display:none}}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.feat{background:var(--card);border-radius:6px;padding:30px 28px;display:grid;gap:10px;border-left:4px solid var(--blue)}
+.feat .ic{width:44px;height:44px;border-radius:8px;background:var(--bg);display:grid;place-items:center;color:var(--red);font-family:var(--font-serif);font-weight:800;font-size:1.3rem}
+.feat h3{font-family:var(--font-display);font-size:1.5rem;font-weight:600}
+.feat p{margin:0;color:var(--fg-dim);font-size:.94rem}
+@media(max-width:860px){.features{grid-template-columns:1fr}}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-block:48px}
+.fcols h4{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:0 0 12px;font-weight:600}
+.fcols ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:.9rem}
+.fcols .brand b{color:var(--fg)}
+.fcols p{margin:10px 0 0;font-size:.9rem;color:var(--fg-dim);max-width:34ch}
+.fbot{border-top:1px solid var(--line);padding-block:18px;font-size:.78rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:860px){.fcols{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.fcols{grid-template-columns:1fr}}
+.rv{transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.pre{opacity:0;transform:translateY(22px)}
+.rv.in{opacity:1;transform:none}
+
+/* programs */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.prog{background:var(--card);border-radius:6px;padding:30px 28px;position:relative;min-width:0;display:flex;flex-direction:column;gap:10px;border-top:5px solid var(--belt,var(--red));box-shadow:0 2px 0 var(--line);transition:transform .25s,box-shadow .25s}
+.prog:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(23,18,15,.09)}
+.prog h3{font-family:var(--font-display);font-size:1.7rem;font-weight:600}
+.prog .age{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:600}
+.prog .hangul{font-family:var(--font-serif);font-weight:600;color:var(--fg-dim);font-size:.95rem}
+.prog p{margin:0;color:var(--fg-dim);font-size:.95rem;flex:1}
+.prog .more{font-size:.88rem;font-weight:600;text-decoration:none;margin-top:8px;color:var(--blue)}
+@media(max-width:900px){.grid3{grid-template-columns:1fr}}
+
+/* tenets */
+.tenets{background:var(--red);color:#fff;padding-block:36px}
+.tenets .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;text-align:center}
+.tenets div{flex:1 1 150px}
+.tenets .k{font-family:var(--font-serif);font-weight:800;font-size:1.8rem;display:block;line-height:1.1}
+.tenets small{letter-spacing:.14em;text-transform:uppercase;font-size:.68rem;opacity:.9;font-weight:600}
+
+/* master */
+.master .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+.portrait{position:relative;aspect-ratio:4/5;max-width:100%;background:var(--card);border-radius:6px;display:grid;place-items:end start;padding:26px;overflow:hidden;box-shadow:0 20px 50px rgba(23,18,15,.08)}
+.portrait::before{content:"전";position:absolute;right:-6%;top:-4%;font-family:var(--font-serif);font-weight:800;font-size:16rem;line-height:1;color:rgba(15,63,140,.05)}
+.portrait .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--fg-dim);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;text-align:center;padding:20px;font-weight:700}
+.portrait .name{position:relative;font-family:var(--font-display);font-size:1.9rem;line-height:1.05;font-weight:600}
+.portrait .name span{display:block;font-family:var(--font-serif);font-size:1rem;color:var(--red);text-transform:none;font-weight:600}
+.master h2{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:600;line-height:1.08;margin-top:12px}
+.master .lede{font-size:1.1rem;margin:18px 0 26px;color:var(--fg-dim)}
+.cred-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.cred-list li{display:grid;grid-template-columns:20px 1fr;gap:14px;align-items:start;color:var(--fg-dim);font-size:.95rem}
+.cred-list li::before{content:"";width:20px;height:20px;margin-top:4px;background:conic-gradient(var(--red) 0 50%,var(--blue) 50% 100%);border-radius:50%;transform:rotate(-30deg)}
+.cred-list b{color:var(--ink)}
+@media(max-width:900px){.master .wrap{grid-template-columns:1fr;gap:34px}.portrait{max-width:400px}}
+
+/* awards */
+.award-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.award{display:grid;gap:8px;padding:26px 24px;border-radius:6px;background:var(--card);min-width:0}
+.award .yr{font-family:var(--font-display);font-size:2.1rem;font-weight:600;color:var(--red);line-height:1}
+.award .yr small{font-family:var(--font-body);font-size:.6rem;letter-spacing:.2em;color:var(--fg-dim);text-transform:uppercase;margin-left:8px}
+.award b{display:block;font-size:1rem;line-height:1.35}
+.award span{color:var(--fg-dim);font-size:.86rem}
+@media(max-width:900px){.award-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.award-grid{grid-template-columns:1fr}}
+
+/* schedule */
+.days{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.days button{font:600 .88rem/1 var(--font-body);padding:12px 18px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;color:var(--fg-dim);border-radius:4px;transition:all .2s}
+.days button:hover{border-color:var(--ink);color:var(--ink)}
+.days button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.days button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.slots{display:grid;gap:10px;min-height:250px}
+.slot{display:grid;grid-template-columns:120px 1fr auto;gap:18px;align-items:center;padding:18px 22px;border-radius:6px;background:var(--card);animation:slotin .4s ease both;min-width:0}
+.slot:nth-child(2){animation-delay:.05s}.slot:nth-child(3){animation-delay:.1s}
+@keyframes slotin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.slot .t{font-family:var(--font-display);font-size:1.6rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1}
+.slot .t small{display:block;font-family:var(--font-body);font-size:.62rem;letter-spacing:.18em;color:var(--fg-dim);font-weight:700;margin-top:4px}
+.slot b{display:block}.slot span{color:var(--fg-dim);font-size:.86rem}
+.tag{display:inline-block;padding:5px 12px;font-size:.72rem;font-weight:600;border:1.5px solid;border-radius:999px}
+.tag.kids{border-color:var(--gold);color:var(--gold)}.tag.adult{border-color:var(--blue);color:var(--blue)}.tag.fam{border-color:var(--red);color:var(--red)}
+.hoursline{margin-top:18px;color:var(--fg-dim);font-size:.88rem}
+@media(max-width:620px){.slot{grid-template-columns:1fr;gap:8px}}
+
+/* ===== SHOP ===== */
+.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.item{background:var(--card);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .25s,box-shadow .25s}
+.item:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(23,18,15,.09)}
+.item .img{aspect-ratio:1;background:var(--bg-2);display:grid;place-items:center;position:relative;border:2px dashed var(--line);margin:10px;border-radius:6px;text-align:center;color:var(--fg-dim);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:16px}
+.item .img svg{width:36%;height:36%;opacity:.35;margin-bottom:8px}
+.item .img .badge{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:4px 8px;border-radius:3px}
+.item .body{padding:18px 18px 20px;display:grid;gap:8px}
+.item h3{font-size:1.02rem;font-weight:700;line-height:1.3}
+.item .desc{font-size:.84rem;color:var(--fg-dim);margin:0}
+.item .price{font-family:var(--font-display);font-size:1.5rem;font-weight:600;font-variant-numeric:tabular-nums}
+.item .opts{display:flex;gap:8px;align-items:center}
+.item select{font:inherit;font-size:.84rem;padding:9px 10px;border:1.5px solid var(--line);border-radius:4px;background:#fff;flex:1;min-width:0}
+.item .add{flex:none;padding:10px 16px;font-size:.84rem}
+.shopnote{margin-top:22px;color:var(--fg-dim);font-size:.88rem}
+@media(max-width:1000px){.shop-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.shop-grid{grid-template-columns:1fr}}
+
+/* cart drawer */
+#cartwrap{position:fixed;inset:0;z-index:90;display:none}
+#cartwrap.open{display:block}
+#cartwrap .shade{position:absolute;inset:0;background:rgba(23,18,15,.5)}
+#cart{position:absolute;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--card);display:flex;flex-direction:column;padding:24px 22px;padding-top:calc(24px + env(safe-area-inset-top,0px));padding-bottom:calc(22px + env(safe-area-inset-bottom,0px));box-shadow:-20px 0 60px rgba(0,0,0,.2);animation:slide .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes slide{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}
+#cart h3{font-family:var(--font-display);font-size:1.8rem;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+#cart .x{background:none;border:0;font-size:1.6rem;cursor:pointer;line-height:1;color:var(--fg-dim)}
+#cart .lines{flex:1;overflow:auto;margin:18px 0;display:grid;gap:12px;align-content:start}
+.line{display:grid;grid-template-columns:1fr auto;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.line small{display:block;color:var(--fg-dim);font-size:.8rem}
+.line .qty{display:flex;align-items:center;gap:8px}
+.line .qty button{width:26px;height:26px;border:1.5px solid var(--line);background:#fff;border-radius:4px;cursor:pointer;font-weight:700}
+.line .amt{font-variant-numeric:tabular-nums;font-weight:700;text-align:right}
+#cart .empty{color:var(--fg-dim);font-size:.92rem;text-align:center;padding:40px 0}
+#cart .tot{display:flex;justify-content:space-between;font-weight:700;font-size:1.05rem;padding-top:12px;border-top:2px solid var(--ink);font-variant-numeric:tabular-nums}
+#cart .tot small{display:block;font-weight:400;color:var(--fg-dim);font-size:.78rem}
+#cart .btn{margin-top:14px;width:100%}
+
+/* reviews */
+.testi{background:var(--ink);color:#fff}
+.testi .sec-head .k{color:#fff;border-color:var(--gold)}
+.testi .sec-head p{color:rgba(255,255,255,.72)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.q{background:rgba(255,255,255,.06);border-radius:6px;padding:30px 26px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.q .stars{color:var(--gold);letter-spacing:.2em;font-size:.9rem}
+.q p{margin:0;font-family:var(--font-display);font-size:1.2rem;font-weight:500;line-height:1.6;flex:1;color:rgba(255,255,255,.94)}
+.q cite{font-style:normal;font-weight:600;font-size:.85rem}
+.q cite small{display:block;font-weight:400;letter-spacing:.04em;text-transform:none;opacity:.7}
+@media(max-width:900px){.quotes{grid-template-columns:1fr}}
+
+/* contact */
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:600;line-height:1.08;margin-top:12px}
+.info{display:grid;gap:20px;margin-top:26px}
+.info div b{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:4px;font-weight:600}
+.info div span{font-size:1.05rem}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;font-variant-numeric:tabular-nums;font-size:.95rem}
+.hours em{font-style:normal;color:var(--fg-dim)}
+form{display:grid;gap:16px;background:var(--card);padding:30px;border-radius:6px}
+label{display:grid;gap:6px;font-size:.8rem;color:var(--fg-dim);font-weight:600}
+input,select,textarea{font:inherit;font-family:var(--font-body);padding:13px 14px;background:#fff;color:var(--fg);border:1.5px solid var(--line);border-radius:4px;width:100%;text-transform:none;letter-spacing:0}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.14)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ok{display:none;padding:16px;background:var(--bg);border-left:4px solid var(--red);font-size:.92rem;border-radius:4px}
+.ok.show{display:block}
+@media(max-width:860px){.contact .wrap{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+
+.ctaband{background:var(--blue);color:#fff;padding-block:60px;text-align:center}
+.ctaband .big{font-family:var(--font-display);font-size:clamp(2.2rem,4.8vw,3.6rem);font-weight:600;line-height:1.05}
+.ctaband p{color:rgba(255,255,255,.82);margin:12px auto 24px;max-width:46ch}
+.ctaband .btn{background:#fff;color:var(--blue)}.ctaband .btn:hover{background:var(--red);color:#fff}
+
+footer{border-top:1px solid var(--line);background:var(--bg-2);color:var(--fg-dim)}
+footer a{text-decoration:none}footer a:hover{color:var(--red)}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv.pre{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+
+<!-- ===== INTRO ===== -->
+<div id="intro" aria-label="Intro">
+  <div>
+    <svg class="logo" viewBox="0 0 200 200" aria-hidden="true">
+      <circle class="arc" cx="100" cy="100" r="88" fill="none" stroke="#c8102e" stroke-width="6" stroke-linecap="round" pathLength="300" transform="rotate(-90 100 100)"/>
+      <circle class="arc b" cx="100" cy="100" r="88" fill="none" stroke="#0f3f8c" stroke-width="6" stroke-linecap="round" pathLength="300" stroke-dasharray="150 150" transform="rotate(90 100 100)"/>
+      <g class="core">
+        <path d="M100 46a54 54 0 0 1 0 108 27 27 0 0 1 0-54 27 27 0 0 0 0-54z" fill="#0f3f8c"/>
+        <path d="M100 46a54 54 0 0 0 0 108 27 27 0 0 0 0-54 27 27 0 0 1 0-54z" fill="#c8102e"/>
+        <text x="100" y="112" text-anchor="middle" font-family="Noto Serif KR,serif" font-weight="800" font-size="34" fill="#fff">전</text>
+      </g>
+    </svg>
+    <div class="t"><span class="k">태권도</span><span class="e">Master Jeon · Chester, NJ</span></div>
+  </div>
+  <button id="skip" type="button">Skip</button>
+  <div class="bar"></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- product icons -->
+    <g id="ic-dobok"><path d="M30 18l14-8h12l14 8 10 22-10 4-2-6v52H32V38l-2 6-10-4z" fill="#fff" stroke="#17120f" stroke-width="3" stroke-linejoin="round"/><path d="M44 10l6 26 6-26" fill="none" stroke="#17120f" stroke-width="2"/><rect x="32" y="60" width="36" height="7" fill="#17120f"/></g>
+    <g id="ic-belt"><path d="M12 40h76v12H12z" fill="#17120f"/><path d="M50 52l-14 30M50 52l10 30" stroke="#17120f" stroke-width="7" stroke-linecap="round"/><rect x="16" y="43" width="12" height="6" fill="#c8102e"/></g>
+    <g id="ic-tee"><path d="M28 16l14-6a8 8 0 0 0 16 0l14 6 10 18-12 6-2-4v50H32V36l-2 4-12-6z" fill="#c8102e" stroke="#9c0b23" stroke-width="2" stroke-linejoin="round"/><text x="50" y="62" text-anchor="middle" font-family="Noto Serif KR,serif" font-weight="800" font-size="24" fill="#fff">전</text></g>
+    <g id="ic-hoodie"><path d="M26 22l16-8h16l16 8 8 20-12 6v42H26V48l-12-6z" fill="#17120f"/><path d="M42 14a8 8 0 0 0 16 0" fill="none" stroke="#fff" stroke-width="2"/><path d="M38 60h24v18H38z" fill="#2e2724"/><circle cx="50" cy="40" r="9" fill="none" stroke="#c8102e" stroke-width="3"/></g>
+    <g id="ic-gear"><path d="M50 10c18 0 26 10 26 30v28c0 14-8 22-26 22S24 82 24 68V40c0-20 8-30 26-30z" fill="#c8102e"/><path d="M34 44h32v8H34zM34 58h32v8H34z" fill="#fff" opacity=".7"/></g>
+    <g id="ic-pad"><rect x="22" y="14" width="56" height="72" rx="10" fill="#0f3f8c"/><circle cx="50" cy="50" r="16" fill="none" stroke="#fff" stroke-width="4"/><circle cx="50" cy="50" r="5" fill="#fff"/></g>
+    <g id="ic-bottle"><rect x="40" y="8" width="20" height="10" rx="2" fill="#17120f"/><path d="M36 18h28v6l6 8v50a8 8 0 0 1-8 8H38a8 8 0 0 1-8-8V32l6-8z" fill="#0f3f8c"/><rect x="30" y="46" width="40" height="18" fill="#fff"/><text x="50" y="60" text-anchor="middle" font-family="Noto Serif KR,serif" font-weight="800" font-size="14" fill="#c8102e">태권도</text></g>
+    <g id="ic-bag"><path d="M14 36h72l-4 46H18z" fill="#17120f"/><path d="M34 36V26a16 16 0 0 1 32 0v10" fill="none" stroke="#17120f" stroke-width="5"/><rect x="36" y="48" width="28" height="20" fill="#c8102e"/></g>
+  </defs>
+</svg>
+
+<!-- ===== TOP BAR ===== -->
+<div class="topbar"><div class="wrap"><span><b>(908) 879-7721</b> · 23 West Main St, Chester, NJ 07930</span><span>Mon to Fri from 11:30 am · Sat from 9:20 am · <b>First class free</b></span></div></div>
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50 4a46 46 0 0 1 0 92 23 23 0 0 1 0-46 23 23 0 0 0 0-46z" fill="#0f3f8c"/>
+        <path d="M50 4a46 46 0 0 0 0 92 23 23 0 0 0 0-46 23 23 0 0 1 0-46z" fill="#c8102e"/>
+        <text x="50" y="60" text-anchor="middle" font-family="Noto Serif KR,serif" font-weight="800" font-size="30" fill="#fff">전</text>
+      </svg>
+      <div><b>MASTER JEON<br>TAE KWON DO</b><span>Chester, New Jersey</span></div>
+    </a>
+    <div class="links">
+      <a href="#programs">Programs</a>
+      <a href="#master">Grand Master</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="navright">
+      <button class="cartbtn" id="opencart" type="button">Cart <i id="cartcount">0</i></button>
+      <a class="btn" href="#contact">Free Trial</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">A Plus Master Jeon Tae Kwon Do · Chester, NJ</div>
+      <h1 style="margin-top:18px">Discipline.<br>Confidence.<br><em>Black Belt.</em></h1>
+      <p class="sub">Olympic style Taekwondo for kids, teens, adults and families, taught personally by Grand Master Jung T. Jeon, 7th Dan and former coach of the Princeton University and West Point Taekwondo programs.</p>
+      <div class="cta">
+        <a class="btn" href="#contact">Book a Free Trial</a>
+        <a class="btn ghost" href="#schedule">View Schedule</a>
+      </div>
+      <div class="stats">
+        <div><b><i data-count="7">0</i>th</b><small>Dan Black Belt</small></div>
+        <div><b>Top <i data-count="10">0</i></b><small>NJ School Awards</small></div>
+        <div><b><i data-count="40">0</i>+</b><small>Years Teaching</small></div>
+        <div><b>Ages <i data-count="4">0</i>+</b><small>Pee Wee to Adult</small></div>
+      </div>
+    </div>
+    <figure class="photo" style="margin:0">
+      <img src="images/class-photo.jpg" alt="Students of all ages practicing a punching drill on the blue mats, beneath the school's championship banners">
+      <span class="chip">On the mat</span>
+      <figcaption class="cap">Adult and family class<b>23 West Main Street, Chester</b></figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- ===== WHY ===== -->
+<section id="why" style="padding-block:72px">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="k">왜 우리인가</span><div class="eyebrow">Why Train Here</div><h2>A serious school with a family feel</h2></div>
+    <div class="features">
+      <div class="feat rv"><div class="ic">師</div><h3>Taught by a Grand Master</h3><p>Every class is led by Grand Master Jeon himself, a 7th Dan who coached at Princeton and West Point. No rotating junior staff.</p></div>
+      <div class="feat rv"><div class="ic">道</div><h3>A clear path to black belt</h3><p>Structured curriculum, regular belt tests and honest feedback. Students know exactly what the next rank requires.</p></div>
+      <div class="feat rv"><div class="ic">家</div><h3>Kids, adults and families</h3><p>Four year olds to seventy year olds train in the same dojang. Parents and kids can earn belts together in the family class.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROGRAMS ===== -->
+<section class="band" id="programs">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="k">수련</div>
+      <div><div class="eyebrow">Programs</div><h2>A class for every age and level</h2><p>From the first bow to black belt. Students come from Chester, Long Valley, Mendham, Randolph and across Morris County.</p></div>
+    </div>
+    <div class="grid3">
+      <article class="prog rv" style="--belt:#f2c200"><div class="age">Ages 4 to 6</div><h3>Pee Wee</h3><span class="hangul">꼬마 반</span><p>Focus, listening, balance and coordination through games and basic Taekwondo movement. A fun first step into the dojang.</p><a class="more" href="#contact">Enroll →</a></article>
+      <article class="prog rv" style="--belt:#2e8b57"><div class="age">Ages 7 to 12</div><h3>Kids</h3><span class="hangul">어린이 반</span><p>Discipline, confidence and respect. Students progress through poomsae, sparring, breaking and self defense on a clear path to black belt.</p><a class="more" href="#contact">Enroll →</a></article>
+      <article class="prog rv" style="--belt:#0f3f8c"><div class="age">Ages 13 and up</div><h3>Teen &amp; Adult</h3><span class="hangul">성인 반</span><p>Serious training for fitness, self defense and competition. Olympic style sparring and traditional technique at a championship level.</p><a class="more" href="#contact">Enroll →</a></article>
+      <article class="prog rv" style="--belt:#c8102e"><div class="age">All ages together</div><h3>Family Class</h3><span class="hangul">가족 반</span><p>Parents and children train side by side. Share goals, share belt tests, and build a habit the whole family keeps.</p><a class="more" href="#contact">Enroll →</a></article>
+      <article class="prog rv" style="--belt:#b8862a"><div class="age">One to one</div><h3>Private Lessons</h3><span class="hangul">개인 지도</span><p>Private sessions with Grand Master Jeon built around the student. Sharpen a skill, prepare for a belt test, or train for a tournament.</p><a class="more" href="#contact">Book →</a></article>
+      <article class="prog rv" style="--belt:#17120f"><div class="age">Competition &amp; defense</div><h3>Sparring &amp; Self Defense</h3><span class="hangul">겨루기 · 호신술</span><p>Olympic style sparring coached by a certified international referee, plus practical self defense for teens and adults.</p><a class="more" href="#contact">Enroll →</a></article>
+    </div>
+  </div>
+</section>
+
+<div class="tenets">
+  <div class="wrap">
+    <div><span class="k">예의</span><small>Courtesy</small></div>
+    <div><span class="k">염치</span><small>Integrity</small></div>
+    <div><span class="k">인내</span><small>Perseverance</small></div>
+    <div><span class="k">극기</span><small>Self Control</small></div>
+    <div><span class="k">백절불굴</span><small>Indomitable Spirit</small></div>
+  </div>
+</div>
+
+<!-- ===== MASTER ===== -->
+<section class="master" id="master">
+  <div class="wrap">
+    <div class="portrait rv">
+      <div class="ph">Photo of Grand Master Jeon<br>(add from the school gallery)</div>
+      <div class="name">Grand Master<br>Jung T. Jeon<span>사범 전정태 · 7단</span></div>
+    </div>
+    <div class="rv">
+      <div class="eyebrow">About the Grand Master</div>
+      <h2>Decades of teaching champions</h2>
+      <p class="lede">Grand Master Jeon has coached Ivy League athletes, West Point cadets and the New Jersey State Team. In Chester he teaches every student personally, from four year olds to seventy year olds.</p>
+      <ul class="cred-list">
+        <li><span><b>Certified 7th Degree Black Belt</b>, Kukkiwon (World Taekwondo Headquarters)</span></li>
+        <li><span><b>Former Instructor and Coach</b>, Princeton University Taekwondo Program, Physical Education Dept.</span></li>
+        <li><span><b>Former Instructor and Coach</b>, United States Military Academy Taekwondo Team, West Point</span></li>
+        <li><span><b>New Jersey State Team Coach</b>, USA National Championships and USA Junior Olympic Championships</span></li>
+        <li><span><b>Certified International Referee</b> and USA Sparring Referee, Pan Am Taekwondo Union</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AWARDS ===== -->
+<section class="band" id="awards">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="k">영예</div>
+      <div><div class="eyebrow">Awards &amp; Recognition</div><h2>Recognized by the sport's highest bodies</h2></div>
+    </div>
+    <div class="award-grid">
+      <div class="award rv"><div class="yr">2015<small>Award</small></div><b>Top 10 Best Taekwondo School</b><span>Big East Taekwondo Championships</span></div>
+      <div class="award rv"><div class="yr">2013<small>Award</small></div><b>Top 10 Best Taekwondo School in New Jersey</b><span>New Jersey Taekwondo Association</span></div>
+      <div class="award rv"><div class="yr">2011<small>Award</small></div><b>Best Referee</b><span>Pan Am International Taekwondo Championships, from President Ji Ho Choi</span></div>
+      <div class="award rv"><div class="yr">2011<small>&amp; 2012</small></div><b>Citation for Excellence</b><span>Kukkiwon, World Taekwondo Headquarters, from President Won Sik Kang</span></div>
+      <div class="award rv"><div class="yr">2009<small>Citation</small></div><b>Citation for Excellence</b><span>World Taekwondo Federation, from President Jung Won Cho</span></div>
+      <div class="award rv"><div class="yr">Many<small>Years</small></div><b>Best Instructor and Top 10 School banners</b><span>Garden State and Big East Taekwondo Championships</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCHEDULE ===== -->
+<section id="schedule">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="k">시간표</div>
+      <div><div class="eyebrow">Class Schedule</div><h2>Six days a week in Chester</h2><p>Example class times. Replace with the school's current timetable.</p></div>
+    </div>
+    <div class="rv">
+      <div class="days" id="days" role="tablist"></div>
+      <div class="slots" id="slots"></div>
+      <p class="hoursline">Private lessons by appointment during open hours. Call (908) 879-7721 to schedule.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHOP ===== -->
+<section class="band" id="shop">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="k">용품</div>
+      <div><div class="eyebrow">Pro Shop</div><h2>Uniforms, gear and school merch</h2><p>Order online and pick up at the dojang. Placeholder items, photos and prices until the school sends its real inventory.</p></div>
+    </div>
+    <div class="shop-grid" id="shopgrid"></div>
+    <p class="shopnote">Orders are confirmed by the school before payment. Need a size not listed? Ask at the front desk or email njchestertkd@gmail.com.</p>
+  </div>
+</section>
+
+<!-- cart drawer -->
+<div id="cartwrap" aria-hidden="true">
+  <div class="shade" id="shade"></div>
+  <aside id="cart" aria-label="Shopping cart">
+    <h3>Your Cart <button class="x" id="closecart" type="button" aria-label="Close cart">×</button></h3>
+    <div class="lines" id="lines"></div>
+    <div class="tot"><span>Total<small>Pickup at the dojang, no shipping</small></span><span id="total">$0.00</span></div>
+    <button class="btn" id="checkout" type="button">Request Order</button>
+    <div class="ok" id="cartok" style="margin-top:12px">Order request sent. The school will confirm your items and arrange payment and pickup.</div>
+  </aside>
+</div>
+
+<!-- ===== REVIEWS ===== -->
+<section class="testi" id="reviews">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="k">후기</div>
+      <div><div class="eyebrow">Student Reviews</div><h2>Students who stay for years</h2><p>Three, five, fourteen years. The school is a family.</p></div>
+    </div>
+    <div class="quotes">
+      <figure class="q rv" style="margin:0"><div class="stars">★★★★★</div><p>I am 70. Three years with Master Jeon should tell you he is a great teacher and runs a great program. My agility and balance are great and my strength has increased significantly. Probably the best shape I have been in since getting out of the military.</p><cite>William Fosina<small>Adult student, 3 years</small></cite></figure>
+      <figure class="q rv" style="margin:0"><div class="stars">★★★★★</div><p>I have attended this school for over 14 years and can only say it has been the best thing I have ever done. Great instructors help you master forms and techniques, and help you grow as an individual through hard work and dedication.</p><cite>Sea Pancake<small>Student, 14 years</small></cite></figure>
+      <figure class="q rv" style="margin:0"><div class="stars">★★★★★</div><p>Master Jeon is a wonderful teacher. It has been a fantastic five years of learning for me and my son. Belonging to his school is belonging to a family of great people all with the same goal: to learn and grow together.</p><cite>Thomas Fuscaldo<small>Parent and student, 5 years</small></cite></figure>
+    </div>
+  </div>
+</section>
+
+<div class="ctaband">
+  <div class="wrap rv">
+    <div class="big">Your first class is free</div>
+    <p>No uniform needed, no experience needed. Come watch, then step on the mat.</p>
+    <a class="btn" href="#contact">Claim Your Free Class</a>
+  </div>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow">Visit the Dojang</div>
+      <h2>Find us on Main Street</h2>
+      <div class="info">
+        <div><b>Address</b><span>23 West Main St, Chester, NJ 07930</span><br><a href="https://maps.google.com/?cid=9548021720517505991" style="font-size:.86rem;color:var(--fg-dim)">Open in Google Maps →</a></div>
+        <div><b>Phone</b><span>(908) 879-7721</span></div>
+        <div><b>Email</b><span>njchestertkd@gmail.com</span></div>
+        <div><b>Hours</b>
+          <div class="hours">
+            <em>Mon</em><span>11:30 am – 7:30 pm</span><em>Tue</em><span>11:30 am – 8:30 pm</span><em>Wed</em><span>11:30 am – 6:30 pm</span><em>Thu</em><span>11:30 am – 8:30 pm</span><em>Fri</em><span>11:30 am – 7:00 pm</span><em>Sat</em><span>9:20 am – 12:00 pm</span><em>Sun</em><span>Closed</span>
+          </div>
+        </div>
+        <div><b>Follow</b><span><a href="https://www.facebook.com/masterjeontkd/">Facebook: @masterjeontkd</a></span></div>
+      </div>
+    </div>
+    <form id="trial" novalidate class="rv">
+      <div class="row2">
+        <label>Your name<input id="f-name" type="text" required placeholder="Full name"></label>
+        <label>Phone<input id="f-phone" type="tel" placeholder="(908) 555-0100"></label>
+      </div>
+      <label>Email<input id="f-email" type="email" required placeholder="you@example.com"></label>
+      <label>Program<select id="f-prog"><option>Pee Wee (4 to 6)</option><option>Kids (7 to 12)</option><option>Teen &amp; Adult</option><option>Family Class</option><option>Private Lessons</option><option>Not sure yet</option></select></label>
+      <label>Message<textarea id="f-msg" rows="4" placeholder="Student's age, experience, and the best time to reach you"></textarea></label>
+      <button class="btn" type="submit">Request a Free Trial</button>
+      <div class="ok" id="ok">Thank you. We will reach out within one business day to set up your trial class. Call (908) 879-7721 if you would like to speak with us sooner.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div><a class="brand" href="#top"><svg class="mark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4a46 46 0 0 1 0 92 23 23 0 0 1 0-46 23 23 0 0 0 0-46z" fill="#0f3f8c"/><path d="M50 4a46 46 0 0 0 0 92 23 23 0 0 0 0-46 23 23 0 0 1 0-46z" fill="#c8102e"/><text x="50" y="60" text-anchor="middle" font-family="Noto Serif KR,serif" font-weight="800" font-size="30" fill="#fff">전</text></svg><div><b>MASTER JEON<br>TAE KWON DO</b><span>Chester, New Jersey</span></div></a><p>Olympic style Taekwondo in Chester since 2017, led by Grand Master Jung T. Jeon.</p></div>
+      <div><h4>Site</h4><ul><li><a href="#programs">Programs</a></li><li><a href="#master">Grand Master</a></li><li><a href="#schedule">Schedule</a></li><li><a href="#shop">Pro Shop</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
+      <div><h4>Visit</h4><ul><li>23 West Main St</li><li>Chester, NJ 07930</li><li><a href="https://maps.google.com/?cid=9548021720517505991">Google Maps</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>(908) 879-7721</li><li>njchestertkd@gmail.com</li><li><a href="https://www.facebook.com/masterjeontkd/">Facebook</a></li></ul></div>
+    </div>
+    <div class="fbot"><span>© 2026 A Plus Master Jeon Tae Kwon Do</span><span>예의 · 염치 · 인내 · 극기 · 백절불굴</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var intro=document.getElementById('intro');
+  function endIntro(){intro.classList.add('out');document.body.style.overflow='';}
+  document.body.style.overflow='hidden';
+  document.getElementById('skip').addEventListener('click',endIntro);
+  setTimeout(endIntro,reduce?0:3200);
+
+  var counted=false;
+  function count(){if(counted)return;counted=true;document.querySelectorAll('[data-count]').forEach(function(el){var t=+el.dataset.count,n=36,i=0;var iv=setInterval(function(){i++;el.textContent=Math.round(t*(1-Math.pow(1-i/n,3)));if(i>=n)clearInterval(iv);},30);});}
+  setTimeout(count,reduce?0:3400);
+
+  var els=document.querySelectorAll('.rv');
+  if(!reduce&&'IntersectionObserver' in window){
+    var vh=window.innerHeight;
+    els.forEach(function(el){if(el.getBoundingClientRect().top>vh)el.classList.add('pre');else el.classList.add('in');});
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('in');});}
+
+  /* schedule */
+  var sched={
+    Mon:[['4:00','PM','Pee Wee','Ages 4 to 6','kids','Pee Wee'],['4:45','PM','Kids','Ages 7 to 12','kids','Kids'],['6:30','PM','Teen & Adult','Ages 13+','adult','Adult']],
+    Tue:[['4:45','PM','Kids','Ages 7 to 12','kids','Kids'],['6:00','PM','Family Class','All ages','fam','Family'],['7:30','PM','Olympic Sparring','Teen & Adult','adult','Sparring']],
+    Wed:[['4:00','PM','Pee Wee','Ages 4 to 6','kids','Pee Wee'],['4:45','PM','Kids','Ages 7 to 12','kids','Kids'],['5:45','PM','Teen & Adult','Ages 13+','adult','Adult']],
+    Thu:[['4:45','PM','Kids','Ages 7 to 12','kids','Kids'],['6:00','PM','Family Class','All ages','fam','Family'],['7:30','PM','Teen & Adult','Ages 13+','adult','Adult']],
+    Fri:[['4:45','PM','Kids','Ages 7 to 12','kids','Kids'],['6:00','PM','Self Defense','Teen & Adult','adult','Self Defense']],
+    Sat:[['9:30','AM','Pee Wee','Ages 4 to 6','kids','Pee Wee'],['10:15','AM','Kids','Ages 7 to 12','kids','Kids'],['11:00','AM','Family Class','All ages','fam','Family']]
+  };
+  var days=document.getElementById('days'),slots=document.getElementById('slots');
+  var today=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][new Date().getDay()];
+  if(!sched[today])today='Mon';
+  function show(d){
+    days.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.d===d);b.setAttribute('aria-selected',b.dataset.d===d);});
+    slots.innerHTML='';
+    sched[d].forEach(function(s){var el=document.createElement('div');el.className='slot';el.innerHTML='<div class="t">'+s[0]+'<small>'+s[1]+'</small></div><div><b>'+s[2]+'</b><span>'+s[3]+'</span></div><span class="tag '+s[4]+'">'+s[5]+'</span>';slots.appendChild(el);});
+  }
+  Object.keys(sched).forEach(function(d){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.dataset.d=d;b.textContent=d;b.addEventListener('click',function(){show(d);});days.appendChild(b);});
+  show(today);
+
+  /* shop */
+  var products=[
+    {id:'dobok',name:'School Dobok (Uniform)',desc:'White V neck uniform with the school logo. Belt included.',price:65,icon:'ic-dobok',opts:['000 (Kids XS)','00','0','1','2','3','4','5'],badge:'Required'},
+    {id:'tee',name:'Master Jeon TKD Tee',desc:'Red cotton tee with the 전 crest. Great for sparring night.',price:22,icon:'ic-tee',opts:['Youth S','Youth M','Youth L','Adult S','Adult M','Adult L','Adult XL']},
+    {id:'hoodie',name:'Dojang Hoodie',desc:'Heavyweight black hoodie, taegeuk crest on the chest.',price:48,icon:'ic-hoodie',opts:['Youth M','Youth L','Adult S','Adult M','Adult L','Adult XL']},
+    {id:'gear',name:'Sparring Gear Set',desc:'Head gear, chest protector, forearm and shin guards, gloves.',price:145,icon:'ic-gear',opts:['Child S','Child M','Child L','Adult S','Adult M','Adult L'],badge:'Sparring'},
+    {id:'pad',name:'Kicking Paddle',desc:'Double paddle target for home practice and speed drills.',price:28,icon:'ic-pad',opts:['Standard']},
+    {id:'belt',name:'Rank Belt',desc:'Replacement belt in your current rank color.',price:12,icon:'ic-belt',opts:['White','Yellow','Orange','Green','Purple','Blue','Brown','Red','Red Black','Black']},
+    {id:'bottle',name:'태권도 Water Bottle',desc:'32 oz steel bottle with the Korean wordmark.',price:24,icon:'ic-bottle',opts:['Navy','Red']},
+    {id:'bag',name:'Gear Bag',desc:'Fits a full sparring set and dobok. School crest on the pocket.',price:38,icon:'ic-bag',opts:['Standard']}
+  ];
+  var grid=document.getElementById('shopgrid');
+  products.forEach(function(p){
+    var el=document.createElement('article');el.className='item rv';
+    el.innerHTML='<div class="img">'+(p.badge?'<span class="badge">'+p.badge+'</span>':'')+'<div><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#'+p.icon+'"/></svg><div>Product photo<br>coming soon</div></div></div><div class="body"><h3>'+p.name+'</h3><p class="desc">'+p.desc+'</p><div class="price">$'+p.price+'</div><div class="opts"><select id="opt-'+p.id+'" aria-label="Size or color">'+p.opts.map(function(o){return '<option>'+o+'</option>';}).join('')+'</select><button class="btn add" type="button">Add</button></div></div>';
+    el.querySelector('.add').addEventListener('click',function(){var o=document.getElementById('opt-'+p.id).value;add(p,o);var b=this;b.textContent='Added';setTimeout(function(){b.textContent='Add';},900);});
+    grid.appendChild(el);
+    if(!reduce&&'IntersectionObserver' in window){el.classList.add('pre');new IntersectionObserver(function(en,o){if(en[0].isIntersecting){el.classList.remove('pre');el.classList.add('in');o.disconnect();}},{threshold:.1}).observe(el);}else el.classList.add('in');
+  });
+
+  var cart=[];
+  var wrap=document.getElementById('cartwrap'),lines=document.getElementById('lines'),total=document.getElementById('total'),cnt=document.getElementById('cartcount');
+  function add(p,o){var k=cart.find(function(c){return c.id===p.id&&c.opt===o;});if(k)k.qty++;else cart.push({id:p.id,name:p.name,opt:o,price:p.price,qty:1});render();}
+  function render(){
+    lines.innerHTML='';var sum=0,n=0;
+    if(!cart.length)lines.innerHTML='<div class="empty">Your cart is empty.<br>Add items from the Pro Shop.</div>';
+    cart.forEach(function(c,i){sum+=c.price*c.qty;n+=c.qty;var el=document.createElement('div');el.className='line';
+      el.innerHTML='<div><b>'+c.name+'</b><small>'+c.opt+'</small><div class="qty"><button type="button" aria-label="Less">−</button><span>'+c.qty+'</span><button type="button" aria-label="More">+</button></div></div><div class="amt">$'+(c.price*c.qty).toFixed(2)+'</div>';
+      var bs=el.querySelectorAll('button');bs[0].addEventListener('click',function(){c.qty--;if(c.qty<=0)cart.splice(i,1);render();});bs[1].addEventListener('click',function(){c.qty++;render();});
+      lines.appendChild(el);});
+    total.textContent='$'+sum.toFixed(2);cnt.textContent=n;document.getElementById('checkout').disabled=!cart.length;
+  }
+  function openCart(){wrap.classList.add('open');wrap.setAttribute('aria-hidden','false');render();}
+  function closeCart(){wrap.classList.remove('open');wrap.setAttribute('aria-hidden','true');}
+  document.getElementById('opencart').addEventListener('click',openCart);
+  document.getElementById('closecart').addEventListener('click',closeCart);
+  document.getElementById('shade').addEventListener('click',closeCart);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCart();});
+  document.getElementById('checkout').addEventListener('click',function(){
+    var ok=document.getElementById('cartok');ok.classList.add('show');this.disabled=true;
+    var msg=document.getElementById('f-msg');msg.value='Pro Shop order:\n'+cart.map(function(c){return c.qty+' × '+c.name+' ('+c.opt+')';}).join('\n');
+    setTimeout(function(){closeCart();ok.classList.remove('show');cart=[];render();location.hash='#contact';document.getElementById('f-name').focus();},1600);
+  });
+  render();
+
+  document.getElementById('trial').addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('f-name'),email=document.getElementById('f-email');
+    if(!name.value.trim()){name.focus();return;}
+    if(!/.+@.+\..+/.test(email.value)){email.focus();return;}
+    document.getElementById('ok').classList.add('show');
+    var b=this.querySelector('button[type=submit]');b.textContent='Request Sent';b.disabled=true;
+  });
+})();
+</script>
+
+</body>
+</html>
