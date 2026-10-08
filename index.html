@@ -7,7 +7,9 @@
 <meta name="description" content="A Plus Master Jeon Tae Kwon Do in Chester, NJ. Olympic style Taekwondo for kids, teens, adults and families with Grand Master Jung T. Jeon, 7th Dan. First class free.">
 <meta property="og:title" content="Master Jeon Tae Kwon Do · Chester, NJ">
 <meta property="og:description" content="Olympic style Taekwondo for kids, teens, adults and families. First class free.">
-<meta property="og:image" content="images/class-photo.jpg">
+<meta property="og:image" content="https://sergiuscommodus.github.io/master-jeon-tkd/images/class-photo.jpg">
+<meta property="og:url" content="https://sergiuscommodus.github.io/master-jeon-tkd/">
+<meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23d0142c' stroke-width='12'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=Nanum+Brush+Script&family=Allura&display=swap">
 <style>
@@ -61,15 +63,13 @@ h1,h2,h3{margin:0;text-wrap:balance}
 #intro .name span{display:block;margin-top:6px;font-family:var(--font-head);font-weight:600;letter-spacing:.32em;font-size:.82rem;color:var(--muted-dark);text-transform:uppercase}
 #enter{display:none;margin:26px auto 0;opacity:0;animation:up .6s 1.6s ease forwards}
 #intro.gate #enter{display:inline-flex}
-#sound{position:fixed;left:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:90;width:46px;height:46px;border-radius:50%;border:0;background:var(--ink);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.25);transition:background .2s,transform .2s}
+#sound{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:90;width:44px;height:44px;border-radius:50%;border:0;background:var(--ink);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.25);transition:background .2s,transform .2s}
 #sound:hover{background:var(--red);transform:scale(1.06)}
 #sound:focus-visible{outline:3px solid #f2b8c0;outline-offset:2px}
-#sound .bars{display:flex;gap:3px;align-items:flex-end;height:16px}
-#sound .bars i{width:3px;background:#fff;border-radius:2px;height:5px}
-#sound.on .bars i{animation:eq .9s ease-in-out infinite}
-#sound.on .bars i:nth-child(2){animation-delay:.2s}#sound.on .bars i:nth-child(3){animation-delay:.4s}#sound.on .bars i:nth-child(4){animation-delay:.1s}
-#sound:not(.on)::after{content:"";position:absolute;width:26px;height:2px;background:#fff;transform:rotate(-45deg)}
-@keyframes eq{0%,100%{height:4px}50%{height:16px}}
+#sound svg{width:22px;height:22px}
+#sound .w{display:none}#sound .x{display:block}
+#sound.on .w{display:block}#sound.on .x{display:none}
+#sound.on{background:var(--red)}
 #skip{position:absolute;right:20px;bottom:20px;background:none;border:1px solid #3a3533;color:var(--muted-dark);font:600 .8rem var(--font-body);padding:9px 14px;border-radius:4px;cursor:pointer}
 #intro button:hover{color:#fff;border-color:#fff}
 @keyframes draw{to{stroke-dashoffset:0}}
@@ -115,7 +115,7 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .hero .stamp svg{position:absolute;inset:0;width:100%;height:100%}
 .hero .stamp span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--font-brush);font-size:3.2rem;writing-mode:vertical-rl;line-height:.9;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.6)}
 .tenet-list{font-family:var(--font-head);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.95rem;line-height:1.5;color:rgba(255,255,255,.75);text-shadow:0 1px 8px rgba(0,0,0,.6)}
-@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;padding-block:60px 56px}.hero .side{display:none}.hero .bg{background-position:60% 40%}.hero .bg::after{background:linear-gradient(0deg,rgba(14,12,12,.95) 25%,rgba(14,12,12,.6) 70%,rgba(14,12,12,.4))}}
+@media(max-width:900px){.hero .wrap{grid-template-columns:minmax(0,1fr);padding-block:60px 56px}.hero .side{display:none}.hero .bg{background-position:60% 40%}.hero .bg::after{background:linear-gradient(0deg,rgba(14,12,12,.96) 30%,rgba(14,12,12,.82) 70%,rgba(14,12,12,.72))}}
 
 /* ===== PROGRAMS ===== */
 .paper{background:var(--paper);position:relative;overflow:hidden}
@@ -146,28 +146,29 @@ section{padding-block:84px;position:relative}
 .why{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:40px;align-items:center;position:relative}
 .why .h2{margin-top:8px}
 .why .lead{margin-top:16px;font-size:1.08rem}
-.icons{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;text-align:center}
+.icons{display:flex;flex-wrap:wrap;justify-content:center;gap:28px 16px;text-align:center}
+.icons .ico{flex:1 1 0;min-width:120px}
 .ico{display:grid;justify-items:center;gap:8px}
 .ico .c{width:78px;height:78px;border-radius:50%;border:2.5px solid var(--red);display:grid;place-items:center;transition:background .3s,transform .3s}
 .ico:hover .c{background:var(--red);transform:translateY(-4px)}
 .ico svg{width:38px;height:38px}
 .ico b{font-weight:700;font-size:1.02rem;margin-top:4px}
 .ico span{font-size:.82rem;color:#cfc8c1;line-height:1.35;max-width:15ch}
-@media(max-width:980px){.why{grid-template-columns:1fr}.icons{grid-template-columns:repeat(3,1fr);row-gap:28px}}
-@media(max-width:520px){.icons{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:980px){.why{grid-template-columns:1fr}.icons .ico{flex:0 1 30%}}
+@media(max-width:520px){.icons .ico{flex:0 1 44%}}
 
 /* ===== INSTRUCTOR ===== */
 .inst{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:stretch;position:relative}
 .inst .txt{padding-block:12px;padding-right:40px;position:relative;z-index:1}
-.inst .meta{display:flex;gap:10px;flex-wrap:wrap;font-weight:600;font-size:.92rem;margin-top:10px}
-.inst .meta span+span::before{content:"|";margin-right:10px;color:var(--line)}
+.inst .meta{display:flex;gap:8px;flex-wrap:wrap;font-weight:600;font-size:.84rem;margin-top:12px}
+.inst .meta span{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
 .inst p{color:var(--muted)}
 .creds{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:8px;font-size:.94rem}
 .creds li{display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start}
 .creds li::before{content:"";width:8px;height:8px;margin-top:8px;background:var(--red);transform:rotate(45deg)}
 .creds b{color:var(--text)}
 .sig{display:flex;align-items:center;gap:14px;margin-top:22px}
-.sig .s{font-family:var(--font-sign);font-size:2.4rem;line-height:1;color:var(--ink)}
+.sig .s{font-family:var(--font-sign);font-size:clamp(1.9rem,6vw,2.4rem);line-height:1;color:var(--ink);white-space:nowrap}
 .sig .chop{width:40px;height:40px;border:2px solid var(--red);color:var(--red);display:grid;place-items:center;font-family:var(--font-brush);font-size:1.5rem;border-radius:3px;transform:rotate(-4deg)}
 .portrait{position:relative;min-height:440px;background:linear-gradient(110deg,#ece8e3 0%,#f7f5f2 55%,#e9e4de 100%);overflow:hidden;border-radius:6px}
 .portrait .flag{position:absolute;left:8%;top:12%;width:120px;opacity:.16}
@@ -245,6 +246,7 @@ thead th.today{background:var(--red-deep)}
 .rv-card b{display:block;font-size:.9rem}
 .rv-card small{color:var(--muted);font-size:.8rem}
 .rnav{display:flex;gap:10px;margin-top:14px}
+.rnav.off{display:none}
 .rnav button{width:42px;height:42px;border-radius:50%;border:1.5px solid #5a5451;background:transparent;color:#fff;cursor:pointer;font-size:1.1rem;transition:background .2s,border-color .2s}
 .rnav button:hover{background:var(--red);border-color:var(--red)}
 @media(max-width:980px){.revs{grid-template-columns:1fr}.rtrack{grid-auto-columns:minmax(280px,80%)}}
@@ -341,7 +343,7 @@ footer .logo em{color:var(--muted-dark)}
   <button type="button" id="skip">Skip</button>
 </div>
 <audio id="music" src="audio/intro.mp3" preload="auto"></audio>
-<button type="button" id="sound" aria-label="Play music" aria-pressed="false"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span></button>
+<button type="button" id="sound" aria-label="Play music" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="x" d="M17 9l5 6M22 9l-5 6"/></svg></button>
 
 <!-- ===== HEADER ===== -->
 <header class="hdr">
@@ -382,7 +384,7 @@ footer .logo em{color:var(--muted-dark)}
       <div class="perks">
         <div class="perk"><svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2"><circle cx="14" cy="12" r="5"/><circle cx="27" cy="13" r="4"/><path d="M4 32c0-6 4-10 10-10s10 4 10 10M21 31c0-5 3-8 7-8s7 3 7 8"/></svg><span>All Ages<br>Welcome</span></div>
         <div class="perk"><svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2"><path d="M20 4l13 5v10c0 9-6 14-13 17C13 33 7 28 7 19V9z"/><path d="M14 20l4 4 8-8"/></svg><span>Safe &amp; Supportive<br>Environment</span></div>
-        <div class="perk"><svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2"><path d="M12 6h16v8a8 8 0 0 1-16 0zM12 9H6c0 5 3 8 6 8M28 9h6c0 5-3 8-6 8M20 22v6M13 34h14l-2-6H15z"/></svg><span>Top 10 School<br>in New Jersey</span></div>
+        <div class="perk"><svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M13 6h14v9a7 7 0 0 1-14 0z"/><path d="M13 9H7v2a6 6 0 0 0 6 6M27 9h6v2a6 6 0 0 1-6 6"/><path d="M20 22v6"/><path d="M14 34h12v-3a3 3 0 0 0-3-3h-6a3 3 0 0 0-3 3z"/></svg><span>Top 10 School<br>in New Jersey</span></div>
       </div>
     </div>
     <div class="side" aria-hidden="true">
@@ -568,7 +570,7 @@ footer .logo em{color:var(--muted-dark)}
       <div class="eyebrow">Visit the Dojang</div>
       <h2 class="h2" style="margin-top:6px">Find Us on Main Street</h2>
       <div class="info">
-        <div><b>Address</b>23 West Main St, Chester, NJ 07930<br><a href="https://maps.google.com/?cid=9548021720517505991" style="color:var(--red);font-weight:600;font-size:.92rem">Open in Google Maps →</a></div>
+        <div><b>Address</b>23 West Main St, Chester, NJ 07930<br><a href="https://maps.google.com/?cid=9548021720517505991" target="_blank" rel="noopener" style="color:var(--red);font-weight:600;font-size:.92rem">Open in Google Maps →</a></div>
         <div><b>Phone</b>(908) 879-7721</div>
         <div><b>Email</b>njchestertkd@gmail.com</div>
         <div><b>Hours</b>
@@ -606,9 +608,9 @@ footer .logo em{color:var(--muted-dark)}
       </div>
       <div class="follow">
         <h4>Follow Us</h4>
-        <a href="https://www.facebook.com/masterjeontkd/" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V9c0-.6.4-1 1-1z"/></svg></a>
+        <a href="https://www.facebook.com/masterjeontkd/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V9c0-.6.4-1 1-1z"/></svg></a>
       </div>
-      <a class="mapcard" href="https://maps.google.com/?cid=9548021720517505991" aria-label="Open the dojang location in Google Maps">
+      <a class="mapcard" href="https://maps.google.com/?cid=9548021720517505991" target="_blank" rel="noopener" aria-label="Open the dojang location in Google Maps">
         <svg viewBox="0 0 260 110" preserveAspectRatio="none" aria-hidden="true"><rect width="260" height="110" fill="#e9e5df"/><path d="M0 70h260M0 30h260M60 0v110M150 0v110M210 0v110" stroke="#fff" stroke-width="6"/><path d="M0 52 260 46" stroke="#f3d27a" stroke-width="7"/><circle cx="110" cy="50" r="9" fill="#d0142c"/><circle cx="110" cy="50" r="3.5" fill="#fff"/></svg>
         <span><b>Master Jeon TKD</b>Chester, NJ</span>
       </a>
@@ -675,6 +677,9 @@ footer .logo em{color:var(--muted-dark)}
   function step(dir){var c=tr.querySelector('.rv-card');tr.scrollBy({left:dir*(c.offsetWidth+16),behavior:reduce?'auto':'smooth'});}
   document.getElementById('rprev').addEventListener('click',function(){step(-1);});
   document.getElementById('rnext').addEventListener('click',function(){step(1);});
+  var rnav=document.querySelector('.rnav');
+  function rcheck(){rnav.classList.toggle('off',tr.scrollWidth<=tr.clientWidth+4);}
+  rcheck();window.addEventListener('resize',rcheck);
 
   /* shop */
   var products=[
